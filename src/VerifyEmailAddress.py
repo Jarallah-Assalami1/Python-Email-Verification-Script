@@ -1,3 +1,6 @@
+'''use this code with python 3 and above
+ package : pip install dnspython
+ '''
 import re
 import smtplib
 import dns.resolver
@@ -24,7 +27,8 @@ domain = str(splitAddress[1])
 print('Domain:', domain)
 
 # MX record lookup
-records = dns.resolver.query(domain, 'MX')
+# with dnspython last version use dns.resolver.resolve instead of dns.resolver.query
+records = dns.resolver.resolve(domain, 'MX')
 mxRecord = records[0].exchange
 mxRecord = str(mxRecord)
 
